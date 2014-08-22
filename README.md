@@ -1,3 +1,8 @@
+# Angular Demo: Counter
+
+App that increments a counter by various amounts. Synchronizes the counter
+across pages and 'persists' the value to the log.
+
 # angular-seed — the seed for AngularJS apps
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
