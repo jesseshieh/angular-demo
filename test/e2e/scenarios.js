@@ -6,36 +6,36 @@ describe('my app', function() {
 
   browser.get('index.html');
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser.getLocationAbsUrl()).toMatch("/view1");
+  it('should automatically redirect to /counter when location hash/fragment is empty', function() {
+    expect(browser.getLocationAbsUrl()).toMatch("/counter");
   });
 
 
-  describe('view1', function() {
+  describe('counter', function() {
 
     beforeEach(function() {
-      browser.get('index.html#/view1');
+      browser.get('index.html#/counter');
     });
 
 
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 1/);
+    it('should render counter when user navigates to /counter', function() {
+      expect(element.all(by.css('[ng-view]')).first().getText()).
+        toMatch(/0/);
     });
 
   });
 
 
-  describe('view2', function() {
+  describe('big-counter', function() {
 
     beforeEach(function() {
-      browser.get('index.html#/view2');
+      browser.get('index.html#/big-counter');
     });
 
 
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 2/);
+    it('should render big-counter when user navigates to /big-counter', function() {
+      expect(element.all(by.css('[ng-view]')).first().getText()).
+        toMatch(/0/);
     });
 
   });
