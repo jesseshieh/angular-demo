@@ -4,7 +4,7 @@
 var Counter = function(value) {
   this.value = value || 0;
   this.increment = function(by) {
-    this.value += by;
+    return new Counter(this.value + by);
   }.bind(this);
 };
 
@@ -13,17 +13,15 @@ var Counter = function(value) {
 var app = angular.module('myApp.services', []);
 app.value('version', '0.1');
 
-app.factory('counter', ['counterPersistence', function(counterPersistence) {
-  return counterPersistence.load();
-}]);
-
 app.factory('counterPersistence', function() {
+  var _counter = new Counter();
   return {
     load: function() {
-      return new Counter();
+      return _counter;
     },
     save: function(counter) {
       console.log('saving ' + JSON.stringify(counter));
+      _counter = counter;
     }
   }
 });
